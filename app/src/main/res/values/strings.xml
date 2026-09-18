@@ -1,0 +1,73 @@
+<resources>
+    <string name="app_name">Monitora Grama</string>
+
+    <!-- Login -->
+    <string name="login_titulo">Monitoramento Inteligente de Grama</string>
+    <string name="login_subtitulo">CCR Motiva · Previsão de corte por trecho</string>
+    <string name="login_matricula">Matrícula</string>
+    <string name="login_senha">Senha</string>
+    <string name="login_entrar">Entrar</string>
+    <string name="login_erro_campos">Preencha matrícula e senha.</string>
+    <string name="login_erro_tamanho">Matrícula e senha devem ter ao menos 4 caracteres.</string>
+
+    <!-- Dashboard -->
+    <string name="dashboard_titulo">Trechos monitorados</string>
+    <string name="dashboard_sair">Sair</string>
+    <string name="dashboard_resumo_critico">Críticos</string>
+    <string name="dashboard_resumo_atencao">Atenção</string>
+    <string name="dashboard_resumo_ok">Em dia</string>
+    <string name="dashboard_vazio">Nenhum trecho cadastrado.</string>
+    <string name="trecho_km">%1$s · km %2$d – %3$d</string>
+    <string name="trecho_altura_estimada">Altura estimada: %1$.1f cm</string>
+    <string name="trecho_proximo_corte">Próximo corte: %1$s</string>
+    <string name="trecho_abrir_detalhe">Abrir detalhes</string>
+
+    <!-- Status -->
+    <string name="status_ok">Em dia</string>
+    <string name="status_atencao">Atenção</string>
+    <string name="status_critico">Crítico</string>
+    <string name="alerta_critico">Altura acima do limite de %1$.0f cm. Corte necessário imediatamente.</string>
+    <string name="alerta_atencao">Corte previsto antes da próxima vistoria (%1$s).</string>
+    <string name="alerta_ok">Grama dentro do limite. Nenhuma ação necessária.</string>
+
+    <!-- Detalhe -->
+    <string name="detalhe_titulo">Detalhes do trecho</string>
+    <string name="voltar">Voltar</string>
+    <string name="detalhe_vegetacao">Vegetação</string>
+    <string name="detalhe_clima">Clima</string>
+    <string name="detalhe_taxa">Crescimento</string>
+    <string name="detalhe_taxa_valor">%1$.2f cm/dia</string>
+    <string name="detalhe_altura">Altura estimada hoje</string>
+    <string name="detalhe_altura_valor">%1$.1f cm</string>
+    <string name="detalhe_proximo_corte">Próximo corte</string>
+    <string name="detalhe_dias_valor">%1$s (%2$s)</string>
+    <string name="detalhe_grafico">Histórico e tendência</string>
+    <string name="detalhe_legenda_medicao">Medições</string>
+    <string name="detalhe_legenda_tendencia">Tendência</string>
+    <string name="detalhe_legenda_limite">Limite</string>
+    <string name="detalhe_historico">Medições registradas</string>
+    <string name="detalhe_sem_medicao">Sem medições registradas.</string>
+    <string name="detalhe_registrar">Registrar medição</string>
+    <string name="detalhe_nao_encontrado">Trecho não encontrado.</string>
+
+    <!-- Nova medição -->
+    <string name="medicao_titulo">Nova medição</string>
+    <string name="medicao_descricao">Informe a altura medida pela câmera ou em campo. A data registrada é a de hoje (%1$s).</string>
+    <string name="medicao_altura">Altura da grama (cm)</string>
+    <string name="medicao_salvar">Salvar medição</string>
+    <string name="medicao_erro_altura">Informe uma altura válida entre 0,1 e 200 cm.</string>
+
+    <!-- Domínio: rótulos exibidos na UI -->
+    <string name="vegetacao_braquiaria">Braquiária</string>
+    <string name="vegetacao_batatais">Grama Batatais</string>
+    <string name="vegetacao_esmeralda">Grama Esmeralda</string>
+    <string name="clima_chuvoso">Chuvoso</string>
+    <string name="clima_temperado">Temperado</string>
+    <string name="clima_seco">Seco</string>
+
+    <string name="dias_hoje">hoje</string>
+    <plurals name="dias">
+        <item quantity="one">em %d dia</item>
+        <item quantity="other">em %d dias</item>
+    </plurals>
+</resources>

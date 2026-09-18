@@ -1,0 +1,147 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 980" width="1400" height="980" font-family="Arial, Helvetica, sans-serif">
+  <defs>
+    <marker id="seta" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#2E7D32"/>
+    </marker>
+    <style>
+      .fone { fill:#fff; stroke:#333; stroke-width:2 }
+      .barra { fill:#2E7D32 }
+      .caixa { fill:#fff; stroke:#999; stroke-width:1.5 }
+      .card { fill:#E9EEE6; stroke:#bbb }
+      .t { font-size:13px; fill:#222 }
+      .tb { font-size:14px; fill:#fff; font-weight:bold }
+      .tt { font-size:15px; fill:#222; font-weight:bold }
+      .p { font-size:11px; fill:#555 }
+      .nota { font-size:12px; fill:#333 }
+      .notab { font-size:13px; fill:#1B5E20; font-weight:bold }
+      .fluxo { stroke:#2E7D32; stroke-width:2.5; fill:none; marker-end:url(#seta) }
+      .volta { stroke:#2E7D32; stroke-width:2; fill:none; stroke-dasharray:6 5; marker-end:url(#seta) }
+    </style>
+  </defs>
+
+  <rect width="1400" height="980" fill="#F6F8F4"/>
+  <text x="40" y="44" font-size="24" font-weight="bold" fill="#1B5E20">Monitora Grama — Wireframe e mapa de navegação (MVP)</text>
+  <text x="40" y="70" class="nota">Protótipo de baixa fidelidade usado como especificação: cada tela aponta o arquivo Compose, os componentes e os recursos (res/) usados na implementação.</text>
+
+  <!-- ===== Tela 1: Login ===== -->
+  <text x="40" y="112" class="notab">1. Login</text>
+  <rect x="40" y="122" width="270" height="540" rx="24" class="fone"/>
+  <path d="M155,250 Q155,225 145,212 Q162,222 165,250 Z M170,250 Q170,215 175,195 Q180,215 180,250 Z M185,250 Q188,225 205,212 Q193,225 193,250 Z" fill="#2E7D32"/>
+  <rect x="140" y="250" width="70" height="5" fill="#2E7D32"/>
+  <text x="175" y="290" text-anchor="middle" class="tt">Monitoramento Inteligente</text>
+  <text x="175" y="308" text-anchor="middle" class="p">CCR Motiva · Previsão de corte</text>
+  <rect x="62" y="340" width="226" height="44" rx="6" class="caixa"/>
+  <text x="76" y="367" class="t">Matrícula</text>
+  <rect x="62" y="398" width="226" height="44" rx="6" class="caixa"/>
+  <text x="76" y="425" class="t">Senha ••••</text>
+  <text x="76" y="458" class="p" fill="#C62828">! mensagem de validação</text>
+  <rect x="62" y="476" width="226" height="42" rx="21" class="barra"/>
+  <text x="175" y="502" text-anchor="middle" class="tb">Entrar</text>
+
+  <!-- ===== Tela 2: Dashboard ===== -->
+  <text x="380" y="112" class="notab">2. Dashboard (trechos)</text>
+  <rect x="380" y="122" width="270" height="540" rx="24" class="fone"/>
+  <rect x="380" y="146" width="270" height="48" class="barra"/>
+  <text x="396" y="176" class="tb">Trechos monitorados</text>
+  <text x="620" y="177" class="tb">⇥</text>
+  <rect x="394" y="206" width="76" height="56" rx="8" fill="#F5D6D6"/>
+  <text x="432" y="232" text-anchor="middle" font-size="18" fill="#C62828" font-weight="bold">1</text>
+  <text x="432" y="252" text-anchor="middle" class="p">Críticos</text>
+  <rect x="477" y="206" width="76" height="56" rx="8" fill="#F8EBC8"/>
+  <text x="515" y="232" text-anchor="middle" font-size="18" fill="#B07A00" font-weight="bold">2</text>
+  <text x="515" y="252" text-anchor="middle" class="p">Atenção</text>
+  <rect x="560" y="206" width="76" height="56" rx="8" fill="#D6E9D6"/>
+  <text x="598" y="232" text-anchor="middle" font-size="18" fill="#2E7D32" font-weight="bold">2</text>
+  <text x="598" y="252" text-anchor="middle" class="p">Em dia</text>
+  <g>
+    <rect x="394" y="274" width="242" height="84" rx="8" class="card"/>
+    <text x="406" y="296" class="t" font-weight="bold">SP-348 · km 20–35</text>
+    <text x="406" y="314" class="p">Altura estimada: 30,4 cm</text>
+    <text x="406" y="330" class="p">Próximo corte: hoje</text>
+    <rect x="406" y="336" width="60" height="16" rx="8" fill="#F5D6D6"/>
+    <text x="436" y="348" text-anchor="middle" font-size="10" fill="#C62828">Crítico</text>
+    <text x="620" y="320" class="t">›</text>
+  </g>
+  <g>
+    <rect x="394" y="366" width="242" height="84" rx="8" class="card"/>
+    <text x="406" y="388" class="t" font-weight="bold">BR-116 · km 210–225</text>
+    <text x="406" y="406" class="p">Altura estimada: 23,4 cm</text>
+    <text x="406" y="422" class="p">Próximo corte: dd/mm</text>
+    <rect x="406" y="428" width="60" height="16" rx="8" fill="#F8EBC8"/>
+    <text x="436" y="440" text-anchor="middle" font-size="10" fill="#B07A00">Atenção</text>
+    <text x="620" y="412" class="t">›</text>
+  </g>
+  <g>
+    <rect x="394" y="458" width="242" height="84" rx="8" class="card"/>
+    <text x="406" y="480" class="t" font-weight="bold">SP-280 · km 30–45</text>
+    <text x="406" y="498" class="p">Altura estimada: 9,6 cm</text>
+    <text x="406" y="514" class="p">Próximo corte: dd/mm</text>
+    <rect x="406" y="520" width="60" height="16" rx="8" fill="#D6E9D6"/>
+    <text x="436" y="532" text-anchor="middle" font-size="10" fill="#2E7D32">Em dia</text>
+    <text x="620" y="504" class="t">›</text>
+  </g>
+  <text x="515" y="572" text-anchor="middle" class="p">(lista ordenada por urgência)</text>
+
+  <!-- ===== Tela 3: Detalhe ===== -->
+  <text x="720" y="112" class="notab">3. Detalhe do trecho</text>
+  <rect x="720" y="122" width="270" height="540" rx="24" class="fone"/>
+  <rect x="720" y="146" width="270" height="48" class="barra"/>
+  <text x="736" y="176" class="tb">←  Detalhes do trecho</text>
+  <text x="734" y="220" class="tt">SP-348 · km 20–35</text>
+  <rect x="734" y="230" width="242" height="36" rx="8" fill="#F5D6D6"/>
+  <text x="746" y="253" font-size="11" fill="#C62828">(!) Acima de 30 cm: corte imediato</text>
+  <rect x="734" y="274" width="242" height="96" rx="8" class="card"/>
+  <text x="746" y="294" class="p">Vegetação ........ Braquiária</text>
+  <text x="746" y="312" class="p">Clima ................. Chuvoso</text>
+  <text x="746" y="330" class="p">Crescimento ....... 1,68 cm/dia</text>
+  <text x="746" y="348" class="p">Altura hoje ......... 30,4 cm</text>
+  <text x="746" y="366" class="p">Próximo corte ..... dd/mm</text>
+  <rect x="734" y="378" width="242" height="130" rx="8" class="card"/>
+  <text x="746" y="396" class="t" font-weight="bold">Histórico e tendência</text>
+  <line x1="746" y1="420" x2="964" y2="420" stroke="#C62828" stroke-width="2"/>
+  <polyline points="748,488 830,468 920,430" fill="none" stroke="#2E7D32" stroke-width="3"/>
+  <line x1="920" y1="430" x2="962" y2="420" stroke="#1565C0" stroke-width="3" stroke-dasharray="5 4"/>
+  <circle cx="748" cy="488" r="4" fill="#2E7D32"/><circle cx="830" cy="468" r="4" fill="#2E7D32"/><circle cx="920" cy="430" r="4" fill="#2E7D32"/>
+  <text x="746" y="502" font-size="10" fill="#555">● medições  ● tendência  ● limite 30 cm</text>
+  <text x="734" y="530" class="t" font-weight="bold">Medições registradas</text>
+  <text x="734" y="550" class="p">dd/mm/aaaa ............................ 27,0 cm</text>
+  <text x="734" y="568" class="p">dd/mm/aaaa ............................ 16,0 cm</text>
+  <rect x="822" y="600" width="154" height="40" rx="12" fill="#C8E6C9"/>
+  <text x="899" y="625" text-anchor="middle" font-size="13" fill="#1B5E20" font-weight="bold">+ Registrar medição</text>
+
+  <!-- ===== Tela 4: Nova medição ===== -->
+  <text x="1060" y="112" class="notab">4. Nova medição</text>
+  <rect x="1060" y="122" width="270" height="540" rx="24" class="fone"/>
+  <rect x="1060" y="146" width="270" height="48" class="barra"/>
+  <text x="1076" y="176" class="tb">←  Nova medição</text>
+  <text x="1074" y="220" class="tt">SP-348 · km 20–35</text>
+  <text x="1074" y="242" class="p">Informe a altura medida. Data = hoje.</text>
+  <rect x="1074" y="262" width="242" height="44" rx="6" class="caixa"/>
+  <text x="1088" y="289" class="t">Altura da grama (cm)</text>
+  <text x="1088" y="322" class="p" fill="#C62828">! valor entre 0,1 e 200 cm</text>
+  <rect x="1074" y="338" width="242" height="42" rx="21" class="barra"/>
+  <text x="1195" y="364" text-anchor="middle" class="tb">Salvar medição</text>
+
+  <!-- ===== Setas de navegação ===== -->
+  <path d="M312,497 L376,497" class="fluxo"/>
+  <text x="344" y="488" text-anchor="middle" class="p">login ok</text>
+  <path d="M652,316 L716,316" class="fluxo"/>
+  <text x="684" y="306" text-anchor="middle" class="p">toque</text>
+  <path d="M978,620 C1020,620 1020,360 1056,360" class="fluxo"/>
+  <text x="1020" y="600" class="p">FAB</text>
+  <path d="M1195,386 C1195,720 860,720 860,666" class="volta"/>
+  <text x="1030" y="712" text-anchor="middle" class="p">salvar → volta ao detalhe (dados e status atualizados)</text>
+  <path d="M630,146 C630,72 175,72 175,118" class="volta"/>
+  <text x="400" y="86" text-anchor="middle" class="p">sair (logout) → login</text>
+
+  <!-- ===== Especificação técnica por tela ===== -->
+  <text x="40" y="770" class="notab">Mapeamento para o Android Studio</text>
+  <text x="40" y="794" class="nota">1. ui/login/LoginScreen.kt + LoginViewModel · OutlinedTextField, Button · domain/usecase/ValidarLoginUseCase · rota "login"</text>
+  <text x="40" y="814" class="nota">2. ui/dashboard/DashboardScreen.kt + DashboardViewModel · LazyColumn, Card, StatusBadge · ObservarTrechosUseCase · rota "dashboard"</text>
+  <text x="40" y="834" class="nota">3. ui/detalhe/DetalheScreen.kt + DetalheViewModel · AlertaStatus, GraficoCrescimento (Canvas), ExtendedFAB · PreverCorteUseCase · rota "detalhe/{trechoId}"</text>
+  <text x="40" y="854" class="nota">4. ui/medicao/NovaMedicaoScreen.kt + NovaMedicaoViewModel · teclado decimal, validação · RegistrarMedicaoUseCase · rota "medicao/{trechoId}"</text>
+  <text x="40" y="884" class="notab">Ativos extraídos → res/</text>
+  <text x="40" y="906" class="nota">Ícones: res/drawable/ic_grass, ic_arrow_back, ic_add, ic_logout, ic_chevron_right, ic_check_circle, ic_warning, ic_error · Ícone do app: mipmap-anydpi/ic_launcher</text>
+  <text x="40" y="926" class="nota">Textos: res/values/strings.xml (inclui plurals) · Cores: verde #2E7D32 (primária), crítico #C62828, atenção #E09B00, em dia #2E7D32, tendência #1565C0 → ui/theme/Color.kt</text>
+  <text x="40" y="946" class="nota">Espaçamentos e tamanhos: ui/theme/Dimens.kt · Regras: limite 30 cm e ciclo de vistoria de 14 dias → domain/model/RegrasCorte.kt</text>
+</svg>
