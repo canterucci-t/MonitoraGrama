@@ -25,7 +25,10 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import br.com.monitoragrama.R
+import br.com.monitoragrama.ui.common.UiState
 import br.com.monitoragrama.ui.components.AppTopBar
+import br.com.monitoragrama.ui.components.EstadoCarregando
+import br.com.monitoragrama.ui.components.EstadoErro
 import br.com.monitoragrama.ui.components.formatar
 import br.com.monitoragrama.ui.theme.Dimens
 import java.time.LocalDate
@@ -37,7 +40,7 @@ fun NovaMedicaoScreen(
     viewModel: NovaMedicaoViewModel = viewModel(factory = NovaMedicaoViewModel.Factory)
 ) {
     val estado by viewModel.uiState.collectAsStateWithLifecycle()
-    val trecho by viewModel.trecho.collectAsStateWithLifecycle()
+    val estadoTrecho by viewModel.trecho.collectAsStateWithLifecycle()
 
     LaunchedEffect(estado.salvo) {
         if (estado.salvo) onMedicaoSalva()
@@ -46,6 +49,21 @@ fun NovaMedicaoScreen(
     Scaffold(
         topBar = { AppTopBar(titulo = stringResource(R.string.medicao_titulo), onVoltar = onVoltar) }
     ) { padding ->
+        val trecho = when (val atual = estadoTrecho) {
+            UiState.Carregando -> {
+                EstadoCarregando(Modifier.padding(padding))
+                return@Scaffold
+            }
+            is UiState.Erro -> {
+                EstadoErro(
+                    mensagem = stringResource(atual.mensagem),
+                    modifier = Modifier.padding(padding),
+                    onTentarNovamente = viewModel::recarregar
+                )
+                return@Scaffold
+            }
+            is UiState.Sucesso -> atual.dados
+        }
         Column(
             modifier = Modifier
                 .fillMaxSize()
@@ -53,13 +71,11 @@ fun NovaMedicaoScreen(
                 .verticalScroll(rememberScrollState())
                 .padding(Dimens.EspacoPadrao)
         ) {
-            trecho?.let {
-                Text(
-                    text = stringResource(R.string.trecho_km, it.rodovia, it.kmInicial, it.kmFinal),
-                    style = MaterialTheme.typography.titleLarge
-                )
-                Spacer(Modifier.height(Dimens.EspacoPequeno))
-            }
+            Text(
+                text = stringResource(R.string.trecho_km, trecho.rodovia, trecho.kmInicial, trecho.kmFinal),
+                style = MaterialTheme.typography.titleLarge
+            )
+            Spacer(Modifier.height(Dimens.EspacoPequeno))
             Text(
                 text = stringResource(R.string.medicao_descricao, LocalDate.now().formatar()),
                 style = MaterialTheme.typography.bodyMedium,
@@ -71,6 +87,7 @@ fun NovaMedicaoScreen(
                 onValueChange = viewModel::onAlturaChange,
                 label = { Text(stringResource(R.string.medicao_altura)) },
                 singleLine = true,
+                enabled = !estado.salvando && !estado.salvo,
                 keyboardOptions = KeyboardOptions(
                     keyboardType = KeyboardType.Decimal,
                     imeAction = ImeAction.Done
@@ -83,10 +100,10 @@ fun NovaMedicaoScreen(
             Spacer(Modifier.height(Dimens.EspacoGrande))
             Button(
                 onClick = viewModel::salvar,
-                enabled = !estado.salvando,
+                enabled = !estado.salvando && !estado.salvo,
                 modifier = Modifier.fillMaxWidth()
             ) {
-                Text(stringResource(R.string.medicao_salvar))
+                Text(stringResource(if (estado.salvando) R.string.medicao_salvando else R.string.medicao_salvar))
             }
         }
     }

@@ -9,6 +9,8 @@
     <string name="login_entrar">Entrar</string>
     <string name="login_erro_campos">Preencha matrícula e senha.</string>
     <string name="login_erro_tamanho">Matrícula e senha devem ter ao menos 4 caracteres.</string>
+    <string name="login_mostrar_senha">Mostrar</string>
+    <string name="login_ocultar_senha">Ocultar</string>
 
     <!-- Dashboard -->
     <string name="dashboard_titulo">Trechos monitorados</string>
@@ -17,6 +19,8 @@
     <string name="dashboard_resumo_atencao">Atenção</string>
     <string name="dashboard_resumo_ok">Em dia</string>
     <string name="dashboard_vazio">Nenhum trecho cadastrado.</string>
+    <string name="dashboard_filtro_criticos">Mostrar apenas trechos críticos</string>
+    <string name="dashboard_vazio_filtro">Nenhum trecho crítico no momento. Desmarque o filtro para ver todos.</string>
     <string name="trecho_km">%1$s · km %2$d – %3$d</string>
     <string name="trecho_altura_estimada">Altura estimada: %1$.1f cm</string>
     <string name="trecho_proximo_corte">Próximo corte: %1$s</string>
@@ -49,12 +53,15 @@
     <string name="detalhe_sem_medicao">Sem medições registradas.</string>
     <string name="detalhe_registrar">Registrar medição</string>
     <string name="detalhe_nao_encontrado">Trecho não encontrado.</string>
+    <string name="detalhe_ver_todas">Ver todas as %1$d medições</string>
+    <string name="detalhe_ver_menos">Ver menos</string>
 
     <!-- Nova medição -->
     <string name="medicao_titulo">Nova medição</string>
     <string name="medicao_descricao">Informe a altura medida pela câmera ou em campo. A data registrada é a de hoje (%1$s).</string>
     <string name="medicao_altura">Altura da grama (cm)</string>
     <string name="medicao_salvar">Salvar medição</string>
+    <string name="medicao_salvando">Salvando…</string>
     <string name="medicao_erro_altura">Informe uma altura válida entre 0,1 e 200 cm.</string>
 
     <!-- Domínio: rótulos exibidos na UI -->
@@ -64,6 +71,12 @@
     <string name="clima_chuvoso">Chuvoso</string>
     <string name="clima_temperado">Temperado</string>
     <string name="clima_seco">Seco</string>
+
+    <!-- Estados de erro -->
+    <string name="tentar_novamente">Tentar novamente</string>
+    <string name="erro_carregar_trechos">Não foi possível carregar os trechos salvos no aparelho.</string>
+    <string name="erro_carregar_trecho">Não foi possível carregar este trecho.</string>
+    <string name="erro_salvar_medicao">Não foi possível salvar a medição. Tente novamente.</string>
 
     <string name="dias_hoje">hoje</string>
     <plurals name="dias">

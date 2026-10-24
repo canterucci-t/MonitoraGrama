@@ -5,8 +5,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewmodel.initializer
 import androidx.lifecycle.viewmodel.viewModelFactory
 import br.com.monitoragrama.R
+import br.com.monitoragrama.domain.usecase.EntrarUseCase
 import br.com.monitoragrama.domain.usecase.ResultadoLogin
-import br.com.monitoragrama.domain.usecase.ValidarLoginUseCase
 import br.com.monitoragrama.ui.common.appContainer
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -20,7 +20,7 @@ data class LoginUiState(
     val autenticado: Boolean = false
 )
 
-class LoginViewModel(private val validarLogin: ValidarLoginUseCase) : ViewModel() {
+class LoginViewModel(private val entrar: EntrarUseCase) : ViewModel() {
 
     private val _uiState = MutableStateFlow(LoginUiState())
     val uiState: StateFlow<LoginUiState> = _uiState.asStateFlow()
@@ -29,9 +29,9 @@ class LoginViewModel(private val validarLogin: ValidarLoginUseCase) : ViewModel(
 
     fun onSenhaChange(valor: String) = _uiState.update { it.copy(senha = valor, erro = null) }
 
-    fun entrar() {
+    fun onEntrar() {
         val estado = _uiState.value
-        val erro = when (validarLogin(estado.matricula, estado.senha)) {
+        val erro = when (entrar(estado.matricula, estado.senha)) {
             ResultadoLogin.SUCESSO -> null
             ResultadoLogin.CAMPOS_VAZIOS -> R.string.login_erro_campos
             ResultadoLogin.TAMANHO_INVALIDO -> R.string.login_erro_tamanho
@@ -44,7 +44,7 @@ class LoginViewModel(private val validarLogin: ValidarLoginUseCase) : ViewModel(
 
     companion object {
         val Factory = viewModelFactory {
-            initializer { LoginViewModel(appContainer().validarLogin) }
+            initializer { LoginViewModel(appContainer().entrar) }
         }
     }
 }

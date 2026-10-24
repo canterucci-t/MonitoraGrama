@@ -8,5 +8,7 @@ import kotlinx.coroutines.flow.Flow
 interface TrechoRepository {
     fun observarTrechos(): Flow<List<Trecho>>
     fun observarTrecho(id: String): Flow<Trecho?>
-    suspend fun registrarMedicao(trechoId: String, medicao: Medicao)
+
+    /** Devolve Result para que uma falha de banco chegue à UI em vez de derrubar o app. */
+    suspend fun registrarMedicao(trechoId: String, medicao: Medicao): Result<Unit>
 }

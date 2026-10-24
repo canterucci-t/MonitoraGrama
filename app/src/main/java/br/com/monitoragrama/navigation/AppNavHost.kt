@@ -1,4 +1,4 @@
-package br.com.monitoragrama.ui.navigation
+package br.com.monitoragrama.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.lifecycle.Lifecycle
@@ -33,12 +33,15 @@ private val argumentoTrecho = listOf(navArgument(Rotas.ARG_TRECHO_ID) { type = N
 private fun NavBackStackEntry.estaAtiva() = lifecycle.currentState == Lifecycle.State.RESUMED
 
 @Composable
-fun AppNavHost(navController: NavHostController = rememberNavController()) {
+fun AppNavHost(
+    rotaInicial: String = Rotas.LOGIN,
+    navController: NavHostController = rememberNavController()
+) {
     fun voltar(entrada: NavBackStackEntry) {
         if (entrada.estaAtiva()) navController.popBackStack()
     }
 
-    NavHost(navController = navController, startDestination = Rotas.LOGIN) {
+    NavHost(navController = navController, startDestination = rotaInicial) {
         composable(Rotas.LOGIN) {
             LoginScreen(
                 onLoginSucesso = {

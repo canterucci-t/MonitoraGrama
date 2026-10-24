@@ -18,9 +18,13 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
@@ -28,6 +32,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
+import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -54,7 +59,7 @@ fun LoginScreen(
         estado = estado,
         onMatriculaChange = viewModel::onMatriculaChange,
         onSenhaChange = viewModel::onSenhaChange,
-        onEntrar = viewModel::entrar
+        onEntrar = viewModel::onEntrar
     )
 }
 
@@ -104,12 +109,28 @@ private fun LoginContent(
                 modifier = Modifier.fillMaxWidth()
             )
             Spacer(Modifier.height(Dimens.EspacoMedio))
+            // Estado de apresentação: vive na tela e sobrevive à rotação.
+            var senhaVisivel by rememberSaveable { mutableStateOf(false) }
             OutlinedTextField(
                 value = estado.senha,
                 onValueChange = onSenhaChange,
                 label = { Text(stringResource(R.string.login_senha)) },
                 singleLine = true,
-                visualTransformation = PasswordVisualTransformation(),
+                visualTransformation = if (senhaVisivel) {
+                    VisualTransformation.None
+                } else {
+                    PasswordVisualTransformation()
+                },
+                trailingIcon = {
+                    TextButton(onClick = { senhaVisivel = !senhaVisivel }) {
+                        Text(
+                            stringResource(
+                                if (senhaVisivel) R.string.login_ocultar_senha
+                                else R.string.login_mostrar_senha
+                            )
+                        )
+                    }
+                },
                 keyboardOptions = KeyboardOptions(
                     keyboardType = KeyboardType.Password,
                     imeAction = ImeAction.Done
